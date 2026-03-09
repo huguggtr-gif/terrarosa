@@ -973,6 +973,10 @@ body {
         max-width: 730px;
     }
 
+    .main-content p{
+        line-height: 1.2;
+    }
+
     .side-menu {
         width: 85%;
     }
