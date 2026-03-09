@@ -72,11 +72,9 @@ document.addEventListener("DOMContentLoaded", () => {
         observer.observe(projectSection);
 
     }
-
-
-
-
 });
+
+
 /* =========================
 3. CURSOR (PC ONLY)
 ========================= */

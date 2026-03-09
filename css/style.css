@@ -867,15 +867,13 @@ body {
 /* 파란색 로고 박스 */
 .side-menu .logo01 {
     height: 60px;
-    /* 박스 높이를 더 줄임 */
     background-color: #4C6EF5;
     display: flex;
     justify-content: flex-end;
-    /* 로고를 오른쪽 끝으로 */
     align-items: center;
     margin: 40px 0 20px 0;
     padding: 0 60px;
-    /* 내부 여백 일치 */
+
 }
 
 .side-menu .logo01 img {
@@ -959,7 +957,6 @@ body {
         width: 100%;
         max-width: 400px;
         min-width: auto;
-        /* 300px 고정을 풀어야 밀리지 않습니다 */
     }
 
     .footer .inner {
@@ -1013,12 +1010,10 @@ body {
 
     .header-center {
         display: none;
-        /* 검색바 숨김 */
     }
 
     .mobile-search-btn {
         display: block !important;
-        /* 숨겨져 있던 모바일 돋보기 아이콘 노출 */
     }
 
     .header-inner {
@@ -1075,11 +1070,9 @@ body {
         align-items: center; 
         justify-content: center;
         
-        /* 포인트 1: 높이를 고정(vh)하지 않고 '최소 높이'만 줍니다 */
         min-height: 80vh; 
         height: auto; 
         
-        /* 포인트 2: 위아래 여백을 넉넉히 줘서 절대 안 잘리게 합니다 */
         padding: 120px 20px 80px 20px !important; 
         background-position: center center;
     }
@@ -1088,7 +1081,6 @@ body {
         margin-top: 0;
         text-align: center;
         width: 100%;
-        /* 콘텐츠가 부모를 넘지 않도록 설정 */
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -1103,7 +1095,7 @@ body {
         font-size: 14px;
         line-height: 1;
         margin-bottom: 30px;
-        max-width: 300px; /* 텍스트 너비를 제한해서 읽기 편하게 */
+        max-width: 300px; 
     }
 
     .main-visual {
@@ -1201,11 +1193,8 @@ body {
         grid-template-columns: 1fr;
         gap: 40px;
         padding-bottom: 60px;
-
         justify-items: center;
-        /* 가운데 정렬 */
         text-align: center;
-        /* 텍스트 가운데 */
     }
 
     .footer-newsletter {
@@ -1213,7 +1202,6 @@ body {
         display: flex;
         flex-direction: column;
         align-items: center;
-        /* 내부 요소 가운데 */
     }
 
     .footer-newsletter input,
@@ -1248,12 +1236,8 @@ body {
         display: flex;
         align-items: center; 
         justify-content: center;
-        
-        /* 포인트 1: 높이를 고정(vh)하지 않고 '최소 높이'만 줍니다 */
         min-height: 80vh; 
         height: auto; 
-        
-        /* 포인트 2: 위아래 여백을 넉넉히 줘서 절대 안 잘리게 합니다 */
         padding: 120px 20px 80px 20px !important; 
         background-position: center center;
     }
@@ -1262,7 +1246,6 @@ body {
         margin-top: 0;
         text-align: center;
         width: 100%;
-        /* 콘텐츠가 부모를 넘지 않도록 설정 */
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -1274,7 +1257,7 @@ body {
         font-size: 14px;
         line-height: 1;
         margin-bottom: 30px;
-        max-width: 300px; /* 텍스트 너비를 제한해서 읽기 편하게 */
+        max-width: 300px; 
     }
 }
 

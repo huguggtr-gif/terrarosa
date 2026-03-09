@@ -891,30 +891,24 @@ body {
     }
     
     .mobile-search-btn {
-        display: block !important; /* 숨겨져 있던 모바일 돋보기 아이콘 노출 */
+        display: block !important; 
     }
 
     .header-inner {
-        /* 그리드 비율 조정: 왼쪽(로고+메뉴)에 필요한 만큼만 주고 나머지는 오른쪽 아이콘에 할당 */
         display: flex;
         justify-content: space-between;
         align-items: center;
         padding: 10px 15px;
-        /* 상하좌우 여백 축소 */
         height: 60px;
-        /* 헤더 높이 고정으로 안정감 부여 */
     }
 
     .header-left {
         gap: 8px;
-        /* 로고와 메뉴 버튼을 아주 가깝게 밀착 */
         flex-shrink: 0;
-        /* 공간 부족해도 줄어들지 않음 */
     }
 
     .header-left .logo img {
         width: 65px;
-        /* 로고 크기 최적화 */
         height: auto;
         display: block;
     }
@@ -926,13 +920,11 @@ body {
 
     .menu-btn img {
         width: 22px;
-        /* 메뉴 아이콘 살짝 축소 */
     }
 
     .header-right {
         display: flex;
         gap: 12px;
-        /* 아이콘 사이 간격 유지 */
         padding-bottom: 0;
         align-items: center;
         flex-shrink: 0;
@@ -940,7 +932,6 @@ body {
 
     .header-right i {
         font-size: 17px;
-        /* 아이콘 크기 미세 조정 */
     }
 
     .side-menu {
@@ -962,7 +953,6 @@ body {
 
     .shop-header .intro-image {
         width: 100%;
-        /* 너비 꽉 차게 */
     }
 
     .shop-header .intro-image img {
@@ -1046,7 +1036,7 @@ body {
         padding: 10px 8px;
     }
     .header-right {
-        gap: 8px; /* 아이콘 사이 간격을 더 좁혀서 장바구니 안 잘리게 */
+        gap: 8px; 
     }
     .header-left .logo img {
         width: 60px;
