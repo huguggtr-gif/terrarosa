@@ -74,7 +74,10 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
 
-    /* =========================
+
+
+});
+/* =========================
 3. CURSOR (PC ONLY)
 ========================= */
 
@@ -107,15 +110,7 @@ if (window.matchMedia("(hover: hover) and (pointer: fine)").matches) {
 
 } else {
 
-    // 모바일/태블릿에서는 커서 숨김
     const cursor = document.querySelector(".cursor-dot");
-    if (cursor) {
-        cursor.style.display = "none";
-    }
+    if (cursor) cursor.remove();
 
 }
-
-
-
-
-});

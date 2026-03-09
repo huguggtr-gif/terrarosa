@@ -18,18 +18,14 @@ a:visited {
 
 body {
     margin: 0;
-  padding: 0;
-  overflow-x: hidden;
+    padding: 0;
+    overflow-x: hidden;
     font-family: 'Roboto Condensed', sans-serif;
 }
 
 
 /* 마우스커서변경 */
-*,
-*::before,
-*::after {
-    cursor: none !important;
-}
+
 
 .cursor-dot {
     width: 40px;
@@ -1204,6 +1200,7 @@ body {
     }
 
 }
+
 @media (hover: none) and (pointer: coarse) {
     .cursor-dot {
         display: none;

@@ -13,11 +13,6 @@ body {
 
 /* 마우스커서변경 */
 
-*,
-*::before,
-*::after {
-    cursor: none !important;
-}
 
 .cursor-dot {
     width: 40px;
