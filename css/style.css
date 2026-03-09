@@ -67,13 +67,15 @@ body {
     width: 100%;
     max-width: none;
     margin: 0;
-    padding: 14px 220px 0 220px;
+    padding: 14px 40px 0 40px;
     display: grid;
     grid-template-columns: auto 1fr auto;
     align-items: end;
     position: relative;
     column-gap: 40px;
 }
+
+
 
 .header-left {
     display: flex;
@@ -211,13 +213,17 @@ body {
     background-size: cover;
     display: flex;
     align-items: center;
-    padding: 0 220px;
+    padding: 0 200px;
 }
 
 .main-content {
     max-width: 730px;
     color: #fff;
+    margin-top: 80px;
 }
+
+
+
 
 .series-title {
     font-family: 'Roboto Mono', sans-serif;
@@ -936,13 +942,24 @@ body {
     .header-inner,
     .main-visual,
     .inner {
-        padding-left: 40px;
-        padding-right: 40px;
+        padding-left: 40px !important;
+        padding-right: 40px !important;
+    }
+
+    .main-visual {
+        height: 70vh;
+    }
+
+    .main-content {
+        width: 100%;
+        max-width: 730px;
     }
 
     .search-bar {
         width: 100%;
         max-width: 400px;
+        min-width: auto;
+        /* 300px 고정을 풀어야 밀리지 않습니다 */
     }
 
     .footer .inner {
@@ -952,6 +969,12 @@ body {
 
 /* 2. 태블릿 */
 @media (max-width: 1024px) {
+
+
+    .main-content {
+        width: 100%;
+        max-width: 730px;
+    }
 
     .side-menu {
         width: 85%;
@@ -1046,6 +1069,13 @@ body {
     .close-btn {
         padding: 20px 25px;
     }
+
+    .main-content {
+        max-width: 730px;
+        color: #fff;
+        margin-top: 80px;
+    }
+
 
 
     .series-title {
