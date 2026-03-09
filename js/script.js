@@ -75,39 +75,45 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     /* =========================
-    3. CURSOR
-    ========================= */
+3. CURSOR (PC ONLY)
+========================= */
+
+if (window.matchMedia("(hover: hover) and (pointer: fine)").matches) {
 
     const cursor = document.querySelector(".cursor-dot");
 
     if (cursor) {
 
         window.addEventListener("mousemove", (e) => {
-
             cursor.style.left = e.clientX + "px";
             cursor.style.top = e.clientY + "px";
-
         });
 
         const targets = "a, button, .category-item, .side-menu-link, .menu-btn, .close-btn, .discover-btn, input";
 
         document.addEventListener("mouseover", (e) => {
-
             if (e.target.closest(targets)) {
                 cursor.classList.add("cursor-active");
             }
-
         });
 
         document.addEventListener("mouseout", (e) => {
-
             if (e.target.closest(targets)) {
                 cursor.classList.remove("cursor-active");
             }
-
         });
 
     }
+
+} else {
+
+    // 모바일/태블릿에서는 커서 숨김
+    const cursor = document.querySelector(".cursor-dot");
+    if (cursor) {
+        cursor.style.display = "none";
+    }
+
+}
 
 
 

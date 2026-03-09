@@ -856,3 +856,18 @@ body {
         width: 60px;
     }
 }
+
+@media (hover: hover) and (pointer: fine) {
+
+    *,
+    *::before,
+    *::after {
+        cursor: none !important;
+    }
+
+}
+@media (hover: none) and (pointer: coarse) {
+    .cursor-dot {
+        display: none;
+    }
+}
