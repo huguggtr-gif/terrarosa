@@ -15,8 +15,7 @@ a {
 body {
     margin: 0;
     padding: 0;
-    height: 300vh;
-    /* 스크롤 높이 확보 */
+
     overflow-x: hidden;
     font-family: 'Libre Caslon Text', 'Pretendard', sans-serif;
     -webkit-font-smoothing: antialiased;
@@ -103,16 +102,21 @@ header h1 {
     width: 100%;
     height: 100vh;
     background-color: #BFC6B9;
-    z-index: 5000; /* 메인 02번보다 훨씬 높게 설정 */
-    transform: translateY(-100%); /* 위로 완전히 숨김 */
+    z-index: 5000;
+    /* 메인 02번보다 훨씬 높게 설정 */
+    transform: translateY(-100%);
+    /* 위로 완전히 숨김 */
     transition: transform 0.6s cubic-bezier(0.85, 0, 0.15, 1);
     display: flex;
     flex-direction: column;
     padding: 100px 40px 40px;
-    visibility: hidden; /* 닫혀있을 때 클릭 방지 */
+    visibility: hidden;
+    /* 닫혀있을 때 클릭 방지 */
 }
+
 .side-menu.active {
-    transform: translateY(0); /* 아래로 내려옴 */
+    transform: translateY(0);
+    /* 아래로 내려옴 */
     visibility: visible;
 }
 
@@ -122,19 +126,19 @@ header h1 {
     font-weight: 300;
 }
 
-.side-menu.active #sidelogo{
-    transform:translateY(20vh);
-    opacity:1;
-    transition: transform 0.8s cubic-bezier(.23,.84,.44,1), opacity 0.6s;
+.side-menu.active #sidelogo {
+    transform: translateY(20vh);
+    opacity: 1;
+    transition: transform 0.8s cubic-bezier(.23, .84, .44, 1), opacity 0.6s;
 }
 
-#sidelogo{
-    
-    position:absolute;
-    top:120px;
-    left:40px;
-    transform:translateY(-100px);
-    opacity:0;
+#sidelogo {
+
+    position: absolute;
+    top: 120px;
+    left: 40px;
+    transform: translateY(-100px);
+    opacity: 0;
 }
 
 @keyframes logoDrop {
@@ -142,126 +146,137 @@ header h1 {
         opacity: 0;
         transform: translateY(-50px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
     }
 }
-.side-nav-list{
-    list-style:none;
-    width:260px;
-    margin-left:auto;
-    margin-right:200px;
-    margin-top:50px;
+
+.side-nav-list {
+    list-style: none;
+    width: 260px;
+    margin-left: auto;
+    margin-right: 200px;
+    margin-top: 50px;
 }
 
-.side-menu-item{
-position:relative;
+.side-menu-item {
+    position: relative;
 }
 
-.side-menu-link{
-   
-    font-size:25px;
-    letter-spacing:1px;
-    display:block;
-    padding:4px 0;
+.side-menu-link {
+
+    font-size: 25px;
+    letter-spacing: 1px;
+    display: block;
+    padding: 4px 0;
 }
-.side-submenu{
-    position:static;
-    left:300px;
-    top:0;
-    list-style:none;
-    width:400px;
-    display:none;
+
+.side-submenu {
+    position: static;
+    left: 300px;
+    top: 0;
+    list-style: none;
+    width: 400px;
+    display: none;
 }
-.side-submenu li{
-font-family:'pretendard', serif;
-font-size:16px;
-line-height:1.4;
- white-space:nowrap;   /* 이거 추가 */
+
+.side-submenu li {
+    font-family: 'pretendard', serif;
+    font-size: 16px;
+    line-height: 1.4;
+    white-space: nowrap;
 }
-.side-submenu.open{
-    display:block;
+
+.side-submenu.open {
+    display: block;
 }
+
 .menu-social,
 .menu-policy,
-.menu-login{
-    list-style:none;
-    margin-top:80px;
-    width:200px;
+.menu-login {
+    list-style: none;
+    margin-top: 80px;
+    width: 200px;
 }
+
 .menu-social li,
 .menu-policy li,
-.menu-login li{
+.menu-login li {
 
-    font-size:13px;
-    line-height:1.8;
-}
-.menu-social{
-    position:absolute;
-    right:480px;
-    top:90px;
+    font-size: 13px;
+    line-height: 1.8;
 }
 
-.menu-policy{
-    position:absolute;
-    right:480px;
-    top:170px;
+.menu-social {
+    position: absolute;
+    right: 480px;
+    top: 90px;
 }
 
-.menu-login{
-    position:absolute;
-    right:480px;
-    top:260px;
-}
-.menu-search{
-    position:absolute;
-    top:40px;
-    right:15%;
-    width:400px;   /* 여기 숫자 줄이면 됨 */
-
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-
-    border-bottom:1px solid #999;
-    padding-bottom:10px;
+.menu-policy {
+    position: absolute;
+    right: 480px;
+    top: 170px;
 }
 
-.menu-search input{
-    border:none;
-    background:none;
-    outline:none;
-    font-size:16px;
-    width:70%;
+.menu-login {
+    position: absolute;
+    right: 480px;
+    top: 260px;
 }
 
-.menu-search button{
-    border:none;
-    background:none;
-    font-size:14px;
-    cursor:pointer;
-}
-.side-menu a{
-    text-decoration:none;
-    color:#111;
+.menu-search {
+    position: absolute;
+    top: 40px;
+    right: 15%;
+    width: 400px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    border-bottom: 1px solid #999;
+    padding-bottom: 10px;
 }
 
-.side-menu a:hover{
-    opacity:0.6;
+.menu-search input {
+    border: none;
+    background: none;
+    outline: none;
+    font-size: 16px;
+    width: 70%;
+}
+
+.menu-search button {
+    border: none;
+    background: none;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.side-menu a {
+    text-decoration: none;
+    color: #111;
+}
+
+.side-menu a:hover {
+    opacity: 0.6;
 }
 
 .close-btn {
-    
+
     position: absolute;
     top: 40px;
     right: 60px;
     cursor: pointer;
-    
+
 }
-.close-btn img{
-    width:20px;
-    height:auto;
+
+.close-btn img {
+    width: 20px;
+    height: auto;
 }
 
 
@@ -303,7 +318,6 @@ line-height:1.4;
     font-size: 3rem;
     letter-spacing: 2px;
     margin-bottom: 40px;
-    /* 80px에서 조금 줄여 가독성 확보 */
     font-weight: 250;
     font-family: 'Libre Caslon Text', serif;
     position: relative;
@@ -434,4 +448,237 @@ line-height:1.4;
     object-fit: cover;
     /* 비율을 유지하면서 화면을 빈틈없이 채움 */
     display: block;
+}
+
+/* ---------------- RECOMMENDATION 섹션 ---------------- */
+.recommendation {
+    width: 100%;
+    padding: 100px 40px;
+    background-color: #fff;
+    position: relative;
+    z-index: 20;
+    /* 메인 비주얼 위로 올라오도록 설정 */
+}
+
+.recommendation .inner {
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+.section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    font-weight: 400;
+    margin-bottom: 50px;
+    border-bottom: 1px solid #000;
+    padding-bottom: 20px;
+}
+
+.product-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 40px 2%;
+}
+
+.product-item {
+    flex: 0 0 15%;
+    display: flex;
+    flex-direction: column;
+}
+
+.product-img {
+    background-color: #E2E2E2;
+    /* 배경색 */
+    aspect-ratio: 1 / 1;
+    /* 이미지 영역 비율 고정 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+
+.product-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    /* 상품 패키지 전체가 보이도록 */
+    transition: transform 0.5s;
+}
+
+.product-item:hover .product-img img {
+    transform: scale(1.2);
+}
+
+.product-info {
+    font-family: 'Pretendard', sans-serif;
+}
+
+.eng-name {
+    font-size: 0.85rem;
+    color: #999;
+    margin-bottom: 5px;
+}
+
+.kor-name {
+    font-size: 1rem;
+    color: #111;
+    margin-bottom: 10px;
+    line-height: 1.4;
+    word-break: keep-all;
+}
+
+.price {
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+
+
+
+
+
+
+
+
+
+
+@media (max-width: 1024px) {
+    .product-item {
+        flex: 0 0 calc(33.333% - 1.5%);
+        /* 3열로 딱 떨어짐 */
+    }
+
+    .product-grid {
+        gap: 40px 2.2%;
+    }
+}
+
+@media (max-width:768px) {
+
+    .slider-container {
+        height: 250px !important;
+        /* 이미지 영역 확보 */
+        transform: scale(1) !important;
+        /* 축소 효과 제거 */
+        overflow: visible;
+    }
+
+    .slide {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        display: flex !important;
+        justify-content: center;
+        align-items: center;
+        opacity: 0;
+        transition: opacity 1s;
+    }
+
+    .slide.active {
+        opacity: 1 !important;
+        z-index: 10;
+    }
+
+    .slider-container .slide img {
+        max-height: 100%;
+        width: auto;
+        object-fit: contain;
+        padding: 0;
+        /* 패딩 제거 */
+    }
+
+    .full-slider .slide img {
+        height: 160px;
+        width: auto;
+        object-fit: contain;
+    }
+
+    .main02-visual {
+        position: relative !important;
+        transform: none !important;
+        height: 200px;
+        z-index: 1;
+        margin-top: 50px;
+    }
+
+    .full-slider .slide img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        /* 모바일에서도 꽉 차게 보임 */
+    }
+
+
+    .main01-title {
+        font-size: 1rem;
+        line-height: 1.3;
+        margin-bottom: 40px;
+    }
+
+    .main01-wrapper {
+        height: auto !important;
+        /* 스크롤 고정 해제 */
+        margin-top: 80px;
+        display: block;
+    }
+
+    .main01-sticky {
+        position: relative !important;
+        height: 400px !important;
+        /* 모바일에서 슬라이더가 보일 충분한 높이 */
+        transform: none !important;
+        /* JS 효과 강제 초기화 */
+    }
+
+    .main02-visual {
+        display: none;
+    }
+
+    header {
+        padding: 15px 20px;
+    }
+
+    header h1 {
+        font-size: 16px;
+        letter-spacing: 1.5px;
+    }
+
+    .menu-search {
+        display: none;
+    }
+
+    #sidelogo {
+        top: 300px;
+        padding: 10px;
+    }
+
+    .toggle img {
+        width: 35px;
+        height: auto;
+    }
+
+    .recommendation {
+        padding: 60px 20px;
+    }
+
+    .section-title {
+        font-size: 1.8rem;
+    }
+
+    .product-item {
+        flex: 0 0 calc(50% - 10px);
+        /* 2열로 딱 떨어짐 */
+    }
+
+    .product-grid {
+        gap: 30px 20px;
+    }
+
+    .kor-name {
+        font-size: 0.9rem;
+    }
+
 }
