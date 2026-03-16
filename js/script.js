@@ -1,114 +1,90 @@
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener('DOMContentLoaded', () => {
+    // 1. CURSOR
+    const cursorEffect = document.querySelector(".cursor_effect");
+    const cursorIcon = document.querySelector(".cursor_icon");
 
-    /* =========================
-    1. SIDE MENU
-    ========================= */
+    document.documentElement.addEventListener("mousemove", (e) => {
+        cursorEffect.style.translate = `${e.clientX}px ${e.clientY}px`;
+    });
 
-    const menuBtn = document.querySelector(".menu-btn");
-    const closeBtn = document.getElementById("closeBtn");
-    const sideMenu = document.getElementById("sideMenu");
-    const overlay = document.getElementById("overlay");
+    const anchors = document.querySelectorAll("a, .toggle, .close-btn");
+    anchors.forEach(a => {
+        a.addEventListener("mouseover", () => cursorEffect.classList.add("on"));
+        a.addEventListener("mouseout", () => cursorEffect.classList.remove("on"));
+    });
 
-    const shopMenu = document.getElementById("shopMenu");
-    const sideSubmenu = document.getElementById("sideSubmenu");
-    const arrow = document.getElementById("arrow");
+    // 2. NAVBAR
+const toggleBtn = document.getElementById('toggleBtn');
+const closeBtn = document.getElementById('closeBtn');
+const sideMenu = document.getElementById('sideMenu');
 
-    if (menuBtn) {
-        menuBtn.addEventListener("click", () => {
-            sideMenu.classList.add("active");
-            overlay.classList.add("active");
-            document.body.style.overflow = "hidden";
-        });
-    }
-
-    const closeAll = () => {
-        sideMenu.classList.remove("active");
-        overlay.classList.remove("active");
-        document.body.style.overflow = "";
-    };
-
-    if (closeBtn) closeBtn.addEventListener("click", closeAll);
-    if (overlay) overlay.addEventListener("click", closeAll);
-
-    if (shopMenu) {
-        shopMenu.addEventListener("click", () => {
-            sideSubmenu.classList.toggle("open");
-            arrow.classList.toggle("rotated");
-        });
-    }
-
-
-    /* =========================
-    2. PROJECT REVEAL
-    ========================= */
-
-    const projectSection = document.querySelector(".projectinner");
-    const projectItems = document.querySelectorAll(".projectinner > div");
-
-    if (projectSection) {
-
-        const observer = new IntersectionObserver((entries) => {
-
-            entries.forEach(entry => {
-
-                if (entry.isIntersecting) {
-
-                    projectItems.forEach((item, index) => {
-
-                        setTimeout(() => {
-                            item.classList.add("show");
-                        }, index * 150);
-
-                    });
-
-                    observer.unobserve(entry.target);
-
-                }
-
-            });
-
-        }, { threshold: 0.2 });
-
-        observer.observe(projectSection);
-
-    }
+// 메뉴 열기
+toggleBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    sideMenu.classList.add('active');
+    document.body.style.overflow = 'hidden';
+    // 로고 애니메이션 코드를 JS에서 지웠습니다. (CSS에서 처리)
 });
 
+// 메뉴 닫기
+closeBtn.addEventListener('click', () => {
+    sideMenu.classList.remove('active');
+    document.body.style.overflow = 'auto';
+});
 
-/* =========================
-3. CURSOR (PC ONLY)
-========================= */
-
-if (window.matchMedia("(hover: hover) and (pointer: fine)").matches) {
-
-    const cursor = document.querySelector(".cursor-dot");
-
-    if (cursor) {
-
-        window.addEventListener("mousemove", (e) => {
-            cursor.style.left = e.clientX + "px";
-            cursor.style.top = e.clientY + "px";
-        });
-
-        const targets = "a, button, .category-item, .side-menu-link, .menu-btn, .close-btn, .discover-btn, input";
-
-        document.addEventListener("mouseover", (e) => {
-            if (e.target.closest(targets)) {
-                cursor.classList.add("cursor-active");
+// 서브메뉴 토글 (기존 로직 유지하되 깔끔하게 정리)
+const menuLinks = document.querySelectorAll('.side-menu-link');
+menuLinks.forEach(link => {
+    link.addEventListener('click', function (e) {
+        const submenu = this.nextElementSibling;
+        if (submenu && submenu.classList.contains('side-submenu')) {
+            e.preventDefault();
+            submenu.classList.toggle('open');
+            
+            const arrow = this.querySelector('.arrow img');
+            if (arrow) {
+                arrow.style.transform = submenu.classList.contains('open') ? 'rotate(180deg)' : 'rotate(0deg)';
             }
-        });
+        }
+    });
+});
 
-        document.addEventListener("mouseout", (e) => {
-            if (e.target.closest(targets)) {
-                cursor.classList.remove("cursor-active");
-            }
-        });
+    // 3. SLIDER
+    const setupSlider = (selector) => {
+        const slides = document.querySelectorAll(`${selector} .slide`);
+        let current = 0;
+        if (slides.length === 0) return;
+        setInterval(() => {
+            slides[current].classList.remove('active');
+            current = (current + 1) % slides.length;
+            slides[current].classList.add('active');
+        }, 3000);
+    };
+    setupSlider('.slider-container');
+    setupSlider('.full-slider');
 
+    // 4. PARALLAX
+   window.addEventListener("scroll", () => {
+    const main01 = document.querySelector(".main01-sticky");
+    const main02 = document.querySelector(".main02-visual");
+    const slider = document.querySelector(".slider-container");
+    
+    const scrollY = window.scrollY;
+    const windowH = window.innerHeight;
+
+    let progress = Math.min(scrollY / windowH, 1);
+
+    // [연출 1] 메인 01번 상승 (텍스트+이미지 통째로 위로)
+    main01.style.transform = `translateY(-${progress * 20}%)`;
+
+    // [연출 2] 슬라이더 크기 조절
+    // 이제 translateX(-50%)를 쓸 필요가 없습니다!
+    if (slider) {
+        slider.style.transform = `scale(${1 - (progress * 0.15)})`;
     }
 
-} else {
-
-    const cursor = document.querySelector(".cursor-dot");
-    if (cursor) cursor.remove();
-
-}
+    // [연출 3] 메인 02번 상승
+    let moveY = 90 - (progress * 90); 
+    main02.style.transform = `translateY(${moveY}%)`;
+});
+});

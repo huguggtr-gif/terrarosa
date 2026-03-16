@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FRAMA_main</title>
+    <title>TERAROSA</title>
     <link rel="icon" href="img/favicon.ico">
     <script src="https://kit.fontawesome.com/cada64902b.js" crossorigin="anonymous"></script>
     <link href="css/style.css" rel="stylesheet">
@@ -14,327 +14,167 @@
 
 <body>
 
-    <!--마우스커서변경-->
-    <div class="cursor-dot"></div>
-
-    <!--헤더-->
-    <header class="header">
-        <div class="header-inner">
-
-            <!-- LEFT -->
-            <div class="header-left">
-                <button class="menu-btn">
-                    <img src="img/menu.png" alt="Menu">
-                </button>
-                <a href="index.html" class="logo">
-                    <img src="img/logo.png" alt="FRAMA logo">
-                </a>
-            </div>
-
-            <!-- CENTER -->
-            <div class="header-center">
-                <div class="search-bar">
-                    <i class="fa-solid fa-magnifying-glass"></i>
-                    <input type="text" placeholder="furniture, home goods, lighting, fragrances and self care">
-                    <img src="img/command.png" alt="cmd">
-                </div>
-            </div>
-
-            <!-- RIGHT -->
-            <div class="header-right">
-                <a href="#" class="mobile-search-btn"><i class="fa-solid fa-magnifying-glass"></i></a>
-                <a href="#"><i class="fa-solid fa-user"></i></a>
-                <a href="#"><i class="fa-solid fa-cart-flatbed"></i></a>
+    <div class="cursor_effect">
+        <div class="cursor_wrap">
+            <div class="cursor_icon">
             </div>
         </div>
+    </div>
+
+    <!--헤더-->
+    <header>
+        <h1 class="logo" id="mainLogo"><a href="#">TERAROSA</a></h1>
+        <a href="#" class="toggle" id="toggleBtn">
+            <img src="img/menu.png">
+        </a>
     </header>
 
     <!--SIDEMENU-->
-    <div class="overlay" id="overlay"></div>
+
 
     <nav class="side-menu" id="sideMenu">
+        <div class="menu-search">
+            <input type="text" placeholder="Type here to search">
+            <button>Search</button>
+        </div>
+        <h1 class="logo" id="sidelogo"><a href="#">TERAROSA</a></h1>
+
         <div class="close-btn" id="closeBtn"><img src="img/close.png" alt="downmenu"></div>
+        <ul class="menu-social">
+            <li><a href="#">Facebook</a></li>
+            <li><a href="#">Instagram</a></li>
+            <li><a href="#">X</a></li>
+        </ul>
+        <ul class="menu-policy">
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Cookie Policy</a></li>
+            <li><a href="#">Terms of Service</a></li>
+
+        </ul>
+        <ul class="menu-login">
+            <li><a href="#">Login/Register</a></li>
+
+        </ul>
 
         <ul class="side-nav-list">
+
             <li class="side-menu-item">
                 <a href="#" class="side-menu-link" id="shopMenu">
                     SHOP
-                    <span class="arrow" id="arrow">
+                    <span class="arrow">
                         <img src="img/downmenu.png" alt="downmenu">
                     </span>
                 </a>
-                <ul class="side-submenu" id="sideSubmenu">
-                    <li><a href="furniture.html">Lighting</a></li>
-                    <li><a href="furniture.html">Home goods</a></li>
-                    <li><a href="furniture.html">Furniture</a></li>
-                    <li><a href="furniture.html">Featured</a></li>
+
+                <ul class="side-submenu">
+                    <li><a href="coffee.html">커피</a></li>
+                    <li><a href="#">푸드</a></li>
+                    <li><a href="#">굿즈</a></li>
+                    <li><a href="#">플러스</a></li>
+                    <li><a href="#">도매문의</a></li>
                 </ul>
             </li>
-            <li class="side-menu-item"><a href="furniture.html" class="side-menu-link">Inspiration</a></li>
-            <li class="side-menu-item"><a href="furniture.html" class="side-menu-link">Stories</a></li>
-            <li class="side-menu-item"><a href="furniture.html" class="side-menu-link">Projects</a></li>
-            <li class="side-menu-item"><a href="furniture.html" class="side-menu-link">Visit</a></li>
+
+            <li class="side-menu-item">
+                <a href="#" class="side-menu-link">SUBCRIPTION</a>
+            </li>
+            <li class="side-menu-item">
+                <a href="#" class="side-menu-link">LIBRARY</a>
+            </li>
+
+            <li class="side-menu-item">
+                <a href="#" class="side-menu-link" id="wholesaleMenu">
+                    WHOLESALE
+                    <span class="arrow">
+                        <img src="img/downmenu.png" alt="downmenu">
+                    </span>
+                </a>
+                <ul class="side-submenu">
+                    <li><a href="#">커피 사업자 안내</a></li>
+                    <li><a href="#">대량 주문 문의</a></li>
+                    <li><a href="#">협업 문의</a></li>
+                    <li><a href="#">도매몰 로그인</a></li>
+                </ul>
+            </li>
+            <li class="side-menu-item">
+                <a href="#" class="side-menu-link" id="aboutMenu">
+                    ABOUT
+                    <span class="arrow">
+                        <img src="img/downmenu.png" alt="downmenu">
+                    </span>
+                </a>
+                <ul class="side-submenu">
+                    <li><a href="#">브랜드스토리</a></li>
+                    <li><a href="#">뮤지엄</a></li>
+                    <li><a href="#">매장안내</a></li>
+                </ul>
+            </li>
+
         </ul>
 
-        <div class="logo01">
-            <img src="img/logo01.png" alt="FRAMA Logo">
-        </div>
 
-        <div class="side-social">
-            <a href="#"><img src="img/instagram.png" alt="Instagram"></a>
-            <a href="#"><img src="img/twitter.png" alt="X"></a>
-            <a href="#"><img src="img/youtube.png" alt="YouTube"></a>
-        </div>
 
-        <div class="side-footer-links">
-            <a href="about.html">About us</a>
-            <a href="contact.html">Contact us</a>
-            <a href="search.html">Search</a>
-        </div>
     </nav>
 
     <!--MAIN-->
+    <main>
 
-    <section class="main-visual">
-        <div class="main-content">
-            <h2 class="series-title">01<span class="tight-spacing"> SERIES</span></h2>
-            <p class="series-txt">
-                Chair 01 and its family have become synonymous with FRAMA's design ideals, and with fundamental seating.
-                <br>A typology that has become recognizable in its forward-thinking simplicity.
-            </p>
-            <a href="furniture.html" class="discover-btn">
-                Discover 01 Series
-                <i class="fa-solid fa-caret-right"></i>
-            </a>
-        </div>
-    </section>
+        <!-- main01 wrapper -->
+        <section class="main01-wrapper">
 
-    <!--CATEGORY-->
-    <section class="category">
-        <div class="inner">
-            <h2><span>S</span>hop by category</h2>
-            <hr>
+            <div class="main01-sticky">
 
-            <div class="categoryimg">
+                <div class="main01-content">
+                    <h2 class="main01-title">
+                        ISSUE 77<br>FOR COFFEE
+                    </h2>
 
-                <div class="category-item">
-                    <a href="furniture.html">
-                        <div class="category-thumb">
-                            <img src="img/category01.webp" alt="Lighting" class="base-img">
-                            <img src="img/cateho01.png" alt="Lighting Hover" class="hover-img">
+                    <div class="slider-container">
+                        <div class="slider">
+                            <div class="slides">
+
+                                <div class="slide active"><img src="img/main/main01.jpg"></div>
+                                <div class="slide"><img src="img/main/main02.jpg"></div>
+                                <div class="slide"><img src="img/main/main03.jpg"></div>
+                                <div class="slide"><img src="img/main/main04.jpg"></div>
+                                <div class="slide"><img src="img/main/main05.jpg"></div>
+                                <div class="slide"><img src="img/main/main06.jpg"></div>
+                                <div class="slide"><img src="img/main/main07.jpg"></div>
+                            </div>
                         </div>
-                        <p>Lighting</p>
-                    </a>
+                    </div>
                 </div>
-
-                <div class="category-item">
-                    <a href="furniture.html">
-                        <div class="category-thumb">
-                            <img src="img/category02.webp" alt="Home goods" class="base-img">
-                            <img src="img/cateho02.webp" alt="Home goods Hover" class="hover-img">
-                        </div>
-                        <p>Home goods</p>
-                    </a>
-                </div>
-
-                <div class="category-item">
-                    <a href="furniture.html">
-                        <div class="category-thumb">
-                            <img src="img/category03.webp" alt="Furniture" class="base-img">
-                            <img src="img/cateho03.webp" alt="Furniture Hover" class="hover-img">
-                        </div>
-                        <p>Furniture</p>
-                    </a>
-                </div>
-
-                <div class="category-item">
-                    <a href="furniture.html">
-                        <div class="category-thumb">
-                            <img src="img/category04.webp" alt="Featured" class="base-img">
-                            <img src="img/cateho04.webp" alt="Featured Hover" class="hover-img">
-                        </div>
-                        <p>Featured</p>
-                    </a>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!--CONTENT-->
-    <section class="CONTENT">
-        <div class="inner">
-
-            <div class="content-wrap">
-                <div class="coninner1">
-                    <a href="fragrances.html" class="content-link"> <img src="img/cont01.webp" alt="Fragrances">
-                        <div class="contxt">
-                            <h3>FRAGRANCES</h3>
-                            <p>Discover your fragrance persona, six ephemeral scents</p>
-                            <button>SHOP
-                                <i class="fa-solid fa-caret-right"></i>
-                            </button>
-                        </div>
-                    </a>
-                </div>
-
-                <div class="coninner2">
-                    <a href="shelf-system.html" class="content-link"> <img src="img/cont02.webp" alt="Shelf Library">
-                        <div class="contxt">
-                            <h3>SHELF LIBRARY SYSTEM</h3>
-                            <p>Modular shelving designed to suit any space</p>
-                            <button>CUSTOMIZE
-                                <i class="fa-solid fa-caret-right"></i>
-                            </button>
-                        </div>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!--PROJECT-->
-    <section class="project">
-        <div class="inner">
-            <h2><span>L</span>atest from <span>F</span>RAMA</h2>
-            <hr>
-
-            <div class="projectinner">
-                <div class="project-card">
-                    <a href="project-detail-01.html">
-                        <img src="img/project01.webp" alt="Copenhagen Bar Vitrine">
-                        <h4>COPENHAGEN Bar Vitrine</h4>
-                    </a>
-                    <p>A creative partnership between FRAMA,
-                        restaurateur Riccardo Marcon, and chef Dhriti
-                        Arora takes shape in an intimate space at the
-                        heart of Copenhagen’s city center.</p>
-                    <a href="project-detail-01.html" class="read-more">Read more</a>
-                </div>
-
-                <div class="project-card">
-                    <a href="project-detail-02.html">
-                        <img src="img/project02.webp" alt="New York 7115">
-                        <h4>NEW YORK 7115 Williamsburg</h4>
-                    </a>
-                    <p>FRAMA transforms 7115 by Szeki, a retail space in the heart of Williamsburg, Brooklyn.</p>
-                    <a href="project-detail-02.html" class="read-more">Read more</a>
-                </div>
-                <div class="project-card">
-                    <a href="project-detail-03.html">
-                        <img src="img/project03.webp" alt="Project 03">
-                        <h4>COPENHAGEN Riviera</h4>
-                    </a>
-                    <p>With an interior whose textures and tones match its seasonal produce and wheaten pastries,
-                        Riviera bakery introduces a new concept from chef Chiara Barla of apotek 57.</p>
-                    <a href="project-detail-03.html" class="read-more">Read more</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-
-    <!--FRAMA_F-->
-    <section class=framaf>
-        <div class="inner framaf-wrap">
-
-            <div class="framaf-img">
-                <img src="img/framaf.png" alt="F">
-            </div>
-
-
-            <div class="framaftxt">
-                <h4>
-                    <span>S</span>tyling Guide:
-                    <span>C</span>ompact Living
-                </h4>
-                <p>Considering a small living space prompts the imagination
-                    to think of how to create more space where there is little.<br><br>
-
-                    Furnishing your compact space means selecting multifunctional pieces that are suited to its size.
-                    Design
-                    for compact living allows an Adam or Low Stool 01 to offer itself as your step ladder, your dining
-                    room
-                    chair, and your bedside table—and open up new possibilities for living in so doing.
-                    Discover a guide to introducing the right pieces for a small space.</p>
-                <button>READ GUIDE</button>
-            </div>
-    </section>
-
-
-    <!---FOOTER-->
-    <footer class="footer">
-        <div class="inner">
-
-            <div class="footer-top">
-
-                <div class="footer-newsletter">
-                    <p>Join the FRAMA community for 10% off your first order.</p>
-                    <input type="email" placeholder="Email">
-                    <button>SUBSCRIBE</button>
-                    <span>
-                        By subscribing you agree to FRAMA’s storage and handling of your data.
-                        For more information, visit our Privacy Policy.
-                    </span>
-                </div>
-
-                <!-- middle -->
-                <div class="footer-menu">
-                    <h4>CUSTOMER CARE</h4>
-                    <ul>
-                        <li><a href="#">Contact</a></li>
-                        <li><a href="#">FAQ</a></li>
-                        <li><a href="#">Material Care Guide</a></li>
-                        <li><a href="#">Ordering & Shipping</a></li>
-                        <li><a href="#">Privacy Policy</a></li>
-                        <li><a href="#">Returns & Exchanges</a></li>
-                        <li><a href="#">Terms & Conditions</a></li>
-                    </ul>
-                </div>
-
-                <!-- right -->
-                <div class="footer-menu">
-                    <h4>INFO</h4>
-                    <ul>
-                        <li><a href="#">About</a></li>
-                        <li><a href="#">Careers</a></li>
-                        <li><a href="#">FRAMA Studio Store</a></li>
-                        <li><a href="#">FRAMA Calendar</a></li>
-                        <li><a href="#">Retailers</a></li>
-                    </ul>
-                </div>
-
-                <!-- extra -->
-                <div class="footer-menu">
-                    <h4>Professionals</h4>
-                    <ul>
-                        <li><a href="#">B2B Partner Request</a></li>
-                        <li><a href="#">Image Bank & 2D/3D Files</a></li>
-                        <li><a href="#">Material Guide</a></li>
-                    </ul>
+                <div class="main01-links">
+                    <a href="상품링크주소" class="link-item">BUY</a>
+                    <span class="divider">|</span>
+                    <a href="읽기링크주소" class="link-item">READ</a>
                 </div>
 
             </div>
 
-            <!-- 가운데 connect -->
-            <div class="footer-connect">
-                <span>CONNECT</span>
-                <a href="#">Pinterest</a>
-                <a href="#">Instagram</a>
-                <a href="#">LinkedIn</a>
-                <a href="#">Spotify</a>
+        </section>
+
+
+        <!-- main02 -->
+        <section class="main02-visual">
+
+            <div class="slider full-slider">
+                <div class="slides">
+
+                    <div class="slide active"><img src="img/main/main21.jpg"></div>
+                    <div class="slide"><img src="img/main/main22.webp"></div>
+                    <div class="slide"><img src="img/main/main23.webp"></div>
+                    <div class="slide"><img src="img/main/main24.jpg"></div>
+                    <div class="slide"><img src="img/main/main25.webp"></div>
+
+                </div>
             </div>
 
-            <!-- 맨 아래 -->
-            <div class="footer-bottom">
-                <p>© 2026, FRAMA. All rights reserved.</p>
-                <a href="#">Cookies</a>
-                <a href="#">Accessibility</a>
-            </div>
+        </section>
 
-        </div>
-    </footer>
 
+
+    </main>
 </body>
 
 </html>
