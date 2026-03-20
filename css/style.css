@@ -32,7 +32,7 @@ body {
   transition: translate 0.1s cubic-bezier(0.13, 0.86, 0.45, 0.98);
 }
 
-.cursor_effect > .cursor_wrap {
+.cursor_effect>.cursor_wrap {
   position: absolute;
   width: 100%;
   height: 100%;
@@ -48,7 +48,7 @@ body {
   width: 100%;
   height: 100%;
   border-radius: 50%;
-  background-color: #888;
+  background-color: #B71F2A;
   transition: transform 0.2s;
 }
 
@@ -58,11 +58,51 @@ body {
 }
 
 .cursor_effect.on .cursor_icon {
-  background-color: #8d9981;
+  background-color: #B71F2A;
 }
 
 .cursor_icon.active {
   transform: scale(0.6);
+}
+
+
+/* 슬라이더 커서 텍스트 */
+.cursor_effect.slider-mode .cursor_wrap {
+    width: 60px;
+    height: 60px;
+    background-color: #B71F2A;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cursor_effect.slider-mode .cursor_icon {
+    background-color: transparent;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cursor-slide-text {
+    position: absolute;
+    color: #fff;
+    font-family: 'Libre Caslon Text', serif;
+    font-size: 0.75rem;
+    letter-spacing: 1px;
+    pointer-events: none;
+    white-space: nowrap;
+    display: none;
+}
+
+.cursor_effect.slider-mode .cursor-slide-text {
+    display: block;
+}
+
+.cursor_effect.slider-mode .cursor_icon {
+    opacity: 0;
 }
 
 /* 헤더 */
@@ -532,6 +572,195 @@ header h1 {
   font-weight: 500;
 }
 
+/* ---------------- BEST 섹션 ---------------- */
+.best {
+  width: 100%;
+  padding: 100px 40px;
+  background-color: #fff;
+  position: relative;
+  z-index: 20;
+}
+
+.best .inner {
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+.best-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  gap: 40px 2%;
+}
+
+.best-item {
+  flex: 0 0 15%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* 이미지 래퍼 — hover 오버레이 기준점 */
+.best-img-wrap {
+  background-color: #e2e2e2;
+  aspect-ratio: 1 / 1;
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 20px;
+  cursor: pointer;
+}
+
+.best-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+  transition: opacity 0.4s ease, transform 0.5s ease;
+}
+
+/* 호버 정보 오버레이 */
+.best-hover-info {
+  position: absolute;
+  inset: 0;
+  color: #fff;
+  background-color: unset;
+  padding: clamp(8px, 1.5vw, 20px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: clamp(6px, 1vw, 16px);
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.35s ease, transform 0.35s ease;
+  pointer-events: none;
+}
+
+.best-img-wrap:hover img {
+  opacity: 0;
+  transform: scale(1.05);
+}
+
+.best-img-wrap:hover .best-hover-info {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.hover-block {
+  border-top: 1px solid rgba(255, 255, 255, 0.35);
+  padding-top: clamp(4px, 0.8vw, 10px);
+}
+
+.hover-label {
+  font-family: 'Libre Caslon Text', serif;
+  font-size: clamp(0.6rem, 1.5vw, 0.8rem);
+  font-weight: 700;
+  letter-spacing: 1px;
+  margin-bottom: 4px;
+  color: #fff;
+}
+
+.hover-block ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.hover-block ul li {
+  font-family: 'Pretendard', sans-serif;
+  font-size: clamp(0.58rem, 1.3vw, 0.72rem);
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.88);
+}
+
+/* ---------------- COMING SOON 섹션 ---------------- */
+.coming-soon {
+    position: relative;
+    width: 100%;
+    height: 70vh;
+    overflow: hidden;
+    z-index: 20;
+}
+
+.coming-soon-bg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.coming-soon-bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    filter: brightness(0.75);
+}
+
+.coming-soon-content {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: row;          
+    align-items: flex-end;
+    justify-content: flex-end;
+    gap:20%;
+    color: #fff;
+    padding: 0% 20% 2% 0%;               
+}
+
+
+.coming-soon-text {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    text-align: right; 
+    align-items: flex-end; 
+}
+
+.coming-label {
+    font-family: 'Libre Caslon Text', serif;
+    font-size: 1rem;
+    font-weight: 400;
+    letter-spacing: 3px;
+    opacity: 0.9;
+}
+
+.coming-title {
+    font-family: 'Libre Caslon Text', serif;
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 400;
+    letter-spacing: 4px;
+    line-height: 1.1;
+}
+
+.coming-sub {
+    font-family: 'Pretendard', sans-serif;
+    font-size: 1rem;
+    letter-spacing: 2px;
+    opacity: 0.85;
+    margin-bottom: 10px;
+}
+
+.coming-btn {
+    display: inline-block;
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    color: #fff;
+    font-family: 'Pretendard', sans-serif;
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+    padding: 10px 24px;
+    transition: background 0.3s, color 0.3s;
+}
+
+.coming-btn:hover {
+    background-color: rgba(255, 255, 255, 0.15);
+}
+
+
+
+/* ---------------- 반응형 ---------------- */
+
 @media (max-width: 1024px) {
   .product-item {
     flex: 0 0 calc(33.333% - 1.5%);
@@ -541,14 +770,47 @@ header h1 {
   .product-grid {
     gap: 40px 2.2%;
   }
+
+  .best-item {
+    flex: 0 0 calc(33.333% - 1.5%);
+  }
+
+  .best-grid {
+    gap: 40px 2.2%;
+  }
+
+  /* 태블릿·모바일: 호버 대신 탭으로 토글 */
+  .best-hover-info {
+    opacity: 0;
+    pointer-events: none;
+    padding: 14px;
+    gap: 10px;
+  }
+
+  .best-img-wrap.tapped .best-hover-info {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+
+  .best-img-wrap.tapped img {
+    opacity: 0;
+  }
+
+  .hover-label {
+    font-size: 0.8rem;
+  }
+
+  .hover-block ul li {
+    font-size: 0.72rem;
+  }
+
 }
 
 @media (max-width: 768px) {
   .slider-container {
     height: 250px !important;
-    /* 이미지 영역 확보 */
     transform: scale(1) !important;
-    /* 축소 효과 제거 */
     overflow: visible;
   }
 
@@ -594,7 +856,6 @@ header h1 {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    /* 모바일에서도 꽉 차게 보임 */
   }
 
   .main01-title {
@@ -605,7 +866,6 @@ header h1 {
 
   .main01-wrapper {
     height: auto !important;
-    /* 스크롤 고정 해제 */
     margin-top: 80px;
     display: block;
   }
@@ -613,9 +873,8 @@ header h1 {
   .main01-sticky {
     position: relative !important;
     height: 400px !important;
-    /* 모바일에서 슬라이더가 보일 충분한 높이 */
     transform: none !important;
-    /* JS 효과 강제 초기화 */
+
   }
 
   .main02-visual {
@@ -655,7 +914,6 @@ header h1 {
 
   .product-item {
     flex: 0 0 calc(50% - 10px);
-    /* 2열로 딱 떨어짐 */
   }
 
   .product-grid {
@@ -665,4 +923,48 @@ header h1 {
   .kor-name {
     font-size: 0.9rem;
   }
+
+  .best {
+    padding: 60px 20px;
+  }
+
+  .best-item {
+    flex: 0 0 calc(50% - 10px);
+  }
+
+  .best-grid {
+    gap: 30px 20px;
+  }
+
+  .hover-label {
+    font-size: 0.65rem;
+  }
+
+  .hover-block ul li {
+    font-size: 0.6rem;
+  }
+
+  .hover-block:first-child {
+    display: none;
+  }
+
+  .best-hover-info {
+
+    padding: 10px;
+    gap: 6px;
+  }
+
+  .hover-block {
+    padding-top: 15px;
+  }
+
+
+    .coming-soon {
+        height: 50vh;
+    }
+
+    .coming-title {
+        font-size: 1.8rem;
+    }
+
 }

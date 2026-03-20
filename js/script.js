@@ -1,17 +1,20 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // 1. CURSOR (생략 없이 원본 유지)
+    // 1. CURSOR
     const cursorEffect = document.querySelector(".cursor_effect");
     const cursorIcon = document.querySelector(".cursor_icon");
+    const cursorSlideText = document.querySelector('.cursor-slide-text');
+
     document.documentElement.addEventListener("mousemove", (e) => {
         cursorEffect.style.translate = `${e.clientX}px ${e.clientY}px`;
     });
+
     const anchors = document.querySelectorAll("a, .toggle, .close-btn");
     anchors.forEach(a => {
         a.addEventListener("mouseover", () => cursorEffect.classList.add("on"));
         a.addEventListener("mouseout", () => cursorEffect.classList.remove("on"));
     });
 
-    // 2. NAVBAR (생략 없이 원본 유지)
+    // 2. NAVBAR
     const toggleBtn = document.getElementById('toggleBtn');
     const closeBtn = document.getElementById('closeBtn');
     const sideMenu = document.getElementById('sideMenu');
@@ -39,45 +42,92 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // 3. SLIDER (생략 없이 원본 유지)
-    const setupSlider = (selector) => {
-        const slides = document.querySelectorAll(`${selector} .slide`);
-        let current = 0;
-        if (slides.length === 0) return;
+ // 3. SLIDER
+const setupSlider = (selector) => {
+    const slides = document.querySelectorAll(`${selector} .slide`);
+    let current = 0;
+    if (slides.length === 0) return;
+
+    const total = slides.length;
+
+    const updateCursorText = () => {
+        if (cursorSlideText) {
+            cursorSlideText.textContent = `${current + 1} / ${total}`;
+        }
+    };
+    updateCursorText();
+
+    const sliderEl = document.querySelector(selector);
+
+    if (sliderEl && selector === '.slider-container') {
+        // 첫번째 슬라이더 — 클릭으로 넘기기
+        sliderEl.addEventListener('click', () => {
+            slides[current].classList.remove('active');
+            current = (current + 1) % total;
+            slides[current].classList.add('active');
+            updateCursorText();
+        });
+
+        // 커서 모드 전환
+        sliderEl.addEventListener('mouseenter', () => {
+            cursorEffect.classList.add('slider-mode');
+        });
+        sliderEl.addEventListener('mouseleave', () => {
+            cursorEffect.classList.remove('slider-mode');
+        });
+
+    } else {
+        // full-slider — 자동 슬라이드 유지
         setInterval(() => {
             slides[current].classList.remove('active');
-            current = (current + 1) % slides.length;
+            current = (current + 1) % total;
             slides[current].classList.add('active');
         }, 3000);
-    };
-    setupSlider('.slider-container');
-    setupSlider('.full-slider');
+    }
+};
 
-    // 4. PARALLAX (원본 로직 + 간섭 제거)
+setupSlider('.slider-container');
+setupSlider('.full-slider');
+    // 4. PARALLAX
     window.addEventListener("scroll", () => {
         const main01 = document.querySelector(".main01-sticky");
         const main02 = document.querySelector(".main02-visual");
         const slider = document.querySelector(".slider-container");
-        
+
         const scrollY = window.scrollY;
         const windowH = window.innerHeight;
         let progress = Math.min(scrollY / windowH, 1);
 
-        // PC에서만 실행되도록 수정 (모바일 간섭 차단)
         if (window.innerWidth > 768) {
-            if(main01) main01.style.transform = `translateY(-${progress * 20}%)`;
-            if (slider) {
-                slider.style.transform = `scale(${1 - (progress * 0.15)})`;
-            }
-            if(main02) {
-                let moveY = 90 - (progress * 90); 
+            if (main01) main01.style.transform = `translateY(-${progress * 20}%)`;
+            if (slider) slider.style.transform = `scale(${1 - (progress * 0.15)})`;
+            if (main02) {
+                let moveY = 90 - (progress * 90);
                 main02.style.transform = `translateY(${moveY}%)`;
             }
         } else {
-            // 모바일 초기화 (이미지 안보임 방지)
-            if(main01) main01.style.transform = "none";
-            if(main02) main02.style.transform = "none";
-            if(slider) slider.style.transform = "none";
+            if (main01) main01.style.transform = "none";
+            if (main02) main02.style.transform = "none";
+            if (slider) slider.style.transform = "none";
+        }
+    });
+
+    // 5. BEST 섹션 — 모바일 탭 토글
+    const bestImgWraps = document.querySelectorAll('.best-img-wrap');
+    bestImgWraps.forEach(wrap => {
+        wrap.addEventListener('click', () => {
+            if (wrap.classList.contains('tapped')) {
+                wrap.classList.remove('tapped');
+                return;
+            }
+            bestImgWraps.forEach(w => w.classList.remove('tapped'));
+            wrap.classList.add('tapped');
+        });
+    });
+    document.querySelectorAll('.best-item').forEach(item => {
+        const color = item.dataset.color;
+        if (color) {
+            item.querySelector('.best-hover-info').style.backgroundColor = color;
         }
     });
 });
