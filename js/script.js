@@ -42,52 +42,52 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
- // 3. SLIDER
-const setupSlider = (selector) => {
-    const slides = document.querySelectorAll(`${selector} .slide`);
-    let current = 0;
-    if (slides.length === 0) return;
+    // 3. SLIDER
+    const setupSlider = (selector) => {
+        const slides = document.querySelectorAll(`${selector} .slide`);
+        let current = 0;
+        if (slides.length === 0) return;
 
-    const total = slides.length;
+        const total = slides.length;
 
-    const updateCursorText = () => {
-        if (cursorSlideText) {
-            cursorSlideText.textContent = `${current + 1} / ${total}`;
+        const updateCursorText = () => {
+            if (cursorSlideText) {
+                cursorSlideText.textContent = `${current + 1} / ${total}`;
+            }
+        };
+        updateCursorText();
+
+        const sliderEl = document.querySelector(selector);
+
+        if (sliderEl && selector === '.slider-container') {
+            // 첫번째 슬라이더 — 클릭으로 넘기기
+            sliderEl.addEventListener('click', () => {
+                slides[current].classList.remove('active');
+                current = (current + 1) % total;
+                slides[current].classList.add('active');
+                updateCursorText();
+            });
+
+            // 커서 모드 전환
+            sliderEl.addEventListener('mouseenter', () => {
+                cursorEffect.classList.add('slider-mode');
+            });
+            sliderEl.addEventListener('mouseleave', () => {
+                cursorEffect.classList.remove('slider-mode');
+            });
+
+        } else {
+            // full-slider — 자동 슬라이드 유지
+            setInterval(() => {
+                slides[current].classList.remove('active');
+                current = (current + 1) % total;
+                slides[current].classList.add('active');
+            }, 3000);
         }
     };
-    updateCursorText();
 
-    const sliderEl = document.querySelector(selector);
-
-    if (sliderEl && selector === '.slider-container') {
-        // 첫번째 슬라이더 — 클릭으로 넘기기
-        sliderEl.addEventListener('click', () => {
-            slides[current].classList.remove('active');
-            current = (current + 1) % total;
-            slides[current].classList.add('active');
-            updateCursorText();
-        });
-
-        // 커서 모드 전환
-        sliderEl.addEventListener('mouseenter', () => {
-            cursorEffect.classList.add('slider-mode');
-        });
-        sliderEl.addEventListener('mouseleave', () => {
-            cursorEffect.classList.remove('slider-mode');
-        });
-
-    } else {
-        // full-slider — 자동 슬라이드 유지
-        setInterval(() => {
-            slides[current].classList.remove('active');
-            current = (current + 1) % total;
-            slides[current].classList.add('active');
-        }, 3000);
-    }
-};
-
-setupSlider('.slider-container');
-setupSlider('.full-slider');
+    setupSlider('.slider-container');
+    setupSlider('.full-slider');
     // 4. PARALLAX
     window.addEventListener("scroll", () => {
         const main01 = document.querySelector(".main01-sticky");
@@ -130,4 +130,30 @@ setupSlider('.full-slider');
             item.querySelector('.best-hover-info').style.backgroundColor = color;
         }
     });
+
+
+
+    // 6. MAGAZINE Slider
+    const magWrap = document.querySelector('#magazine .wrap');
+const magNext = document.querySelector('#magazine .next-btn');
+const magPrev = document.querySelector('#magazine .prev-btn');
+const magCards = document.querySelectorAll('#magazine .card');
+
+let magIndex = 0;
+const showCount = 3; // 화면에 보이는 개수
+const totalMag = magCards.length;
+
+magNext.addEventListener('click', () => {
+    if (magIndex < totalMag - showCount) {
+        magIndex++;
+        magWrap.style.transform = `translateX(-${(100 / showCount) * magIndex}%)`;
+    }
+});
+
+magPrev.addEventListener('click', () => {
+    if (magIndex > 0) {
+        magIndex--;
+        magWrap.style.transform = `translateX(-${(100 / showCount) * magIndex}%)`;
+    }
+});
 });
